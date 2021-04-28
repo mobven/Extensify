@@ -13,6 +13,7 @@ Most used extension methods for Kotlin
 8. removeIf(predicate: () -> Boolean)
 9. multipleOnClick(vararg view: View, onClick: () -> Unit)
 10. doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit)
+11. NestedScrollView.setInsetListener()
 
 ## Context
 
@@ -58,5 +59,3 @@ Most used extension methods for Kotlin
 ## Lifecycle
 
 1. LifecycleOwner.observe(liveData: LiveData<T>?, observer: (T) -> Unit)
-
-
