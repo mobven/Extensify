@@ -3,6 +3,9 @@ package com.mobven.extension
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
+import androidx.core.widget.NestedScrollView
 import com.google.android.material.tabs.TabLayout
 
 /**
@@ -110,6 +113,16 @@ fun TabLayout.doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit) {
             // Handle tab unselect
         }
     })
+}
+
+/**
+ * Extension method Provides editing for NestedScrollView in CoordinatorLayout.
+ */
+fun NestedScrollView.setInsetListener() {
+    ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
+        this.updatePadding(bottom = insets.systemWindowInsetBottom)
+        insets.consumeSystemWindowInsets()
+    }
 }
 
 
