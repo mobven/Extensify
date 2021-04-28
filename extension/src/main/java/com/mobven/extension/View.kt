@@ -119,7 +119,6 @@ fun TabLayout.doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit) {
  * Extension method Provides editing for NestedScrollView in CoordinatorLayout.
  * INFO: Updates this NestedScrollView bottom-padding. It removes the empty-space.
  * Insets are areas of your view that you should not put elements, like behind the status bar or navigation bar.
- * MIN-VERSION: API >= 21
  */
 fun NestedScrollView.setInsetListener() {
     ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
