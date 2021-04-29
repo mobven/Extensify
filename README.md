@@ -1,6 +1,29 @@
 # Extensify
 Most used extension methods for Kotlin
 
+
+# Download
+
+### Step 1. Add the JitPack repository to your build file
+
+```
+allprojects {
+    repositories {
+	    ...
+	    maven { url 'https://jitpack.io' }
+	}
+}
+
+```
+
+### Step 2. Add the dependency
+
+```
+dependencies {
+	   implementation 'com.github.mobven:extensify:0.0.1-alpha'
+	}
+```
+
 ## View
 
 1. click()
