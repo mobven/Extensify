@@ -127,6 +127,46 @@ fun NestedScrollView.setInsetListener() {
     }
 }
 
+/**
+ * Extension method for callback action on tab reselected
+ */
+fun TabLayout.doOnTabReselected(onReselected: (TabLayout.Tab?) -> Unit) {
+    addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        override fun onTabSelected(tab: TabLayout.Tab?) {
+            //Handle tab select
+        }
+
+        override fun onTabReselected(tab: TabLayout.Tab?) {
+            onReselected.invoke(tab)
+        }
+
+        override fun onTabUnselected(tab: TabLayout.Tab?) {
+            // Handle tab unselect
+        }
+    })
+}
+
+/**
+ * Extension method for callback action on tab unselected
+ */
+fun TabLayout.doOnTabUnselected(onUnselected: (TabLayout.Tab?) -> Unit) {
+    addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        override fun onTabSelected(tab: TabLayout.Tab?) {
+            //Handle tab select
+        }
+
+        override fun onTabReselected(tab: TabLayout.Tab?) {
+            // Handle tab reselect
+        }
+
+        override fun onTabUnselected(tab: TabLayout.Tab?) {
+            onUnselected.invoke(tab)
+        }
+    })
+}
+
+
+
 
 
 

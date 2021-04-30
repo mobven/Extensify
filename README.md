@@ -36,6 +36,9 @@ dependencies {
 * removeIf(predicate: () -> Boolean)
 * multipleOnClick(vararg view: View, onClick: () -> Unit)
 * doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit)
+* doOnTabReselected(onReselected: (TabLayout.Tab?) -> Unit)
+* doOnTabUnselected(onUnselected: (TabLayout.Tab?) -> Unit)
+
 
 ## Context
 
