@@ -74,6 +74,7 @@ dependencies {
 * SpannableString.bold(start: Int, end: Int)
 * SpannableString.underline(start: Int, end: Int)
 * SpannableString.italic(start: Int, end: Int)
+* String.capitalizeWords(locale: Locale, delimiter: String)
 
 ## Boolean
 
