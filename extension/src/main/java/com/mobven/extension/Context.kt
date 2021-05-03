@@ -8,6 +8,7 @@ import android.content.Intent.*
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.widget.Toast
@@ -172,6 +173,15 @@ fun Context.sms(phone: String?, body: String = "") {
     val smsToUri = Uri.parse("smsto:$phone")
     val intent = Intent(ACTION_SENDTO, smsToUri)
     intent.putExtra("sms_body", body)
+    startActivity(intent)
+}
+
+/**
+ * Extension method to start activity with Intent extras
+ */
+fun <T> Context.startActivityExtras(it: Class<T>, extras: Bundle.() -> Unit = {}) {
+    val intent = Intent(this, it)
+    intent.putExtras(Bundle().apply(extras))
     startActivity(intent)
 }
 
