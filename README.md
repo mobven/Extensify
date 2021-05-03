@@ -20,7 +20,7 @@ allprojects {
 
 ```
 dependencies {
-	   implementation 'com.github.mobven:extensify:0.0.1-alpha'
+	   implementation 'com.github.mobven:extensify:0.0.1'
 	}
 ```
 
