@@ -179,7 +179,7 @@ fun Context.sms(phone: String?, body: String = "") {
 /**
  * Extension method to start activity with Intent extras
  */
-fun <T> Context.startActivityExtras(it: Class<T>, extras: Bundle.() -> Unit = {}) {
+fun <T> Context.startActivityWithExtras(it: Class<T>, extras: Bundle.() -> Unit = {}) {
     val intent = Intent(this, it)
     intent.putExtras(Bundle().apply(extras))
     startActivity(intent)
