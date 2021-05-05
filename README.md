@@ -46,6 +46,7 @@ dependencies {
 * drawable(res: Int)
 * color(color: Int)
 * dpToPixels(dp: Float)
+* Context.startActivityExtras
 
 ## Collection
 
