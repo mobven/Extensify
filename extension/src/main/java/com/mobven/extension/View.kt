@@ -56,7 +56,7 @@ fun View.showKeyboard() {
  * Show the view if [condition] returns true
  * (visibility = View.VISIBLE)
  */
-inline fun View.showIf(condition: () -> Boolean) : View {
+inline fun View.showIf(condition: () -> Boolean): View {
     if (visibility != View.VISIBLE && condition()) {
         visibility = View.VISIBLE
     }
@@ -67,7 +67,7 @@ inline fun View.showIf(condition: () -> Boolean) : View {
  * Hide the view if [predicate] returns true
  * (visibility = View.INVISIBLE)
  */
-inline fun View.hideIf(predicate: () -> Boolean) : View {
+inline fun View.hideIf(predicate: () -> Boolean): View {
     if (visibility != View.INVISIBLE && predicate()) {
         visibility = View.INVISIBLE
     }
@@ -78,7 +78,7 @@ inline fun View.hideIf(predicate: () -> Boolean) : View {
  * Remove the view if [predicate] returns true
  * (visibility = View.GONE)
  */
-inline fun View.removeIf(predicate: () -> Boolean) : View {
+inline fun View.removeIf(predicate: () -> Boolean): View {
     if (visibility != View.GONE && predicate()) {
         visibility = View.GONE
     }
@@ -99,9 +99,11 @@ fun multipleOnClick(vararg view: View, onClick: () -> Unit) {
 /**
  * Extension method for callback actions of tab selected, tab reselected and tab unselected events
  */
-fun TabLayout.onTabSelectedListener(onSelected: (TabLayout.Tab?) -> Unit,
-                            onReselected: (TabLayout.Tab?) -> Unit,
-                            onUnselected: (TabLayout.Tab?) -> Unit) {
+fun TabLayout.onTabSelectedListener(
+    onSelected: (TabLayout.Tab?) -> Unit,
+    onReselected: (TabLayout.Tab?) -> Unit,
+    onUnselected: (TabLayout.Tab?) -> Unit
+) {
     addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab?) {
             onSelected.invoke(tab)

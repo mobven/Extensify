@@ -12,6 +12,8 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.widget.Toast
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 
 /**
@@ -79,7 +81,7 @@ fun Context.dpToPixels(dp: Float): Int {
  */
 fun Context.browse(url: String): Boolean {
     return try {
-        val intent = Intent(Intent.ACTION_VIEW)
+        val intent = Intent(ACTION_VIEW)
         intent.data = Uri.parse(url)
         startActivity(intent)
         true
@@ -183,6 +185,31 @@ fun <T> Context.startActivityWithExtras(it: Class<T>, extras: Bundle.() -> Unit 
     val intent = Intent(this, it)
     intent.putExtras(Bundle().apply(extras))
     startActivity(intent)
+}
+
+/**
+ * Shows url on Chrome Custam Tabs
+ */
+fun Context.showUrlOnCustomTabs(
+    url: String,
+    shareState: Int = CustomTabsIntent.SHARE_STATE_OFF,
+    navigationColor: Int = android.R.color.holo_green_dark,
+    toolbarColor: Int = android.R.color.holo_blue_bright
+) {
+    try {
+        CustomTabsIntent.Builder().apply {
+            val params = CustomTabColorSchemeParams.Builder().apply {
+                setNavigationBarColor(color(navigationColor))
+                setToolbarColor(color(toolbarColor))
+            }
+            setShareState(shareState)
+                .setDefaultColorSchemeParams(params.build())
+                .build()
+                .launchUrl(this@showUrlOnCustomTabs, Uri.parse(url))
+        }
+    } catch (e: Exception) {
+        browse(url)
+    }
 }
 
 

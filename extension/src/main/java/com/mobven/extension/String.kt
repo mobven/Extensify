@@ -47,7 +47,8 @@ fun SpannableString.italic(start: Int, end: Int): SpannableString {
  * @sample "çay-şeker".capitalizeWords(Locale.forLanguageTag("TR"), "-") returns "Çay-Şeker"
  */
 fun String.capitalizeWords(locale: Locale = Locale.ROOT, delimiter: String = " "): String {
-    return split(delimiter).joinToString(delimiter) {
-        it.toLowerCase(locale).capitalize(locale)
+    return split(delimiter).joinToString(delimiter) { word ->
+        word.lowercase(locale)
+            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(locale) else it.toString() }
     }
 }

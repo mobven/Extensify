@@ -20,7 +20,7 @@ allprojects {
 
 ```
 dependencies {
-	   implementation 'com.github.mobven:extensify:0.0.1'
+	   implementation 'com.github.mobven:extensify:0.0.2'
 	}
 ```
 
@@ -47,6 +47,11 @@ dependencies {
 * color(color: Int)
 * dpToPixels(dp: Float)
 * startActivityWithExtras
+* showUrlOnCustomTabs(url: String, 
+                      shareState: Int = CustomTabsIntent.SHARE_STATE_OFF, 
+                      navigationColor: Int = android.R.color.holo_green_dark, 
+                      toolbarColor: Int = android.R.color.holo_blue_bright
+                     )
 
 ## Collection
 
@@ -64,6 +69,7 @@ dependencies {
 ## Double
 
 * orZero()
+* localizedNumberFormat()
 
 ## Long
 
@@ -84,6 +90,10 @@ dependencies {
 ## Lifecycle
 
 * LifecycleOwner.observe(liveData: LiveData<T>?, observer: (T) -> Unit)
+
+## Additional Features
+
+* [Event Wrapper](https://medium.com/androiddevelopers/livedata-with-snackbar-navigation-and-other-events-the-singleliveevent-case-ac2622673150)
 
 ---
 
