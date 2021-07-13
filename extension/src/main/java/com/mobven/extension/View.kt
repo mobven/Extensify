@@ -3,8 +3,6 @@ package com.mobven.extension
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 
 /**
@@ -110,29 +108,6 @@ fun TabLayout.doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit) {
 
         override fun onTabUnselected(tab: TabLayout.Tab?) {
             // Handle tab unselect
-        }
-    })
-}
-
-/**
- * Returns the scroll position for the vertical RecyclerView.
- * @param onScroll : Lambda ScrollPosition param
- */
-
-fun RecyclerView.addScrollListener(onScroll: (position: Int) -> Unit) {
-    var lastPosition = 0
-    addOnScrollListener(object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            super.onScrolled(recyclerView, dx, dy)
-            if (layoutManager is LinearLayoutManager) {
-                val currentVisibleItemPosition =
-                    (layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-
-                if (lastPosition != currentVisibleItemPosition && currentVisibleItemPosition != RecyclerView.NO_POSITION) {
-                    onScroll.invoke(currentVisibleItemPosition)
-                    lastPosition = currentVisibleItemPosition
-                }
-            }
         }
     })
 }
