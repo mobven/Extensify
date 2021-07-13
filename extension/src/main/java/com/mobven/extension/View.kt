@@ -3,9 +3,6 @@ package com.mobven.extension
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.core.view.ViewCompat
-import androidx.core.view.updatePadding
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
@@ -58,7 +55,7 @@ fun View.showKeyboard() {
  * Show the view if [condition] returns true
  * (visibility = View.VISIBLE)
  */
-inline fun View.showIf(condition: () -> Boolean): View {
+inline fun View.showIf(condition: () -> Boolean) : View {
     if (visibility != View.VISIBLE && condition()) {
         visibility = View.VISIBLE
     }
@@ -69,7 +66,7 @@ inline fun View.showIf(condition: () -> Boolean): View {
  * Hide the view if [predicate] returns true
  * (visibility = View.INVISIBLE)
  */
-inline fun View.hideIf(predicate: () -> Boolean): View {
+inline fun View.hideIf(predicate: () -> Boolean) : View {
     if (visibility != View.INVISIBLE && predicate()) {
         visibility = View.INVISIBLE
     }
@@ -80,7 +77,7 @@ inline fun View.hideIf(predicate: () -> Boolean): View {
  * Remove the view if [predicate] returns true
  * (visibility = View.GONE)
  */
-inline fun View.removeIf(predicate: () -> Boolean): View {
+inline fun View.removeIf(predicate: () -> Boolean) : View {
     if (visibility != View.GONE && predicate()) {
         visibility = View.GONE
     }
@@ -99,38 +96,22 @@ fun multipleOnClick(vararg view: View, onClick: () -> Unit) {
 }
 
 /**
- * Extension method for callback actions of tab selected, tab reselected and tab unselected events
+ * Extension method for callback action on tab selected
  */
-fun TabLayout.onTabSelectedListener(
-    onSelected: (TabLayout.Tab?) -> Unit,
-    onReselected: (TabLayout.Tab?) -> Unit,
-    onUnselected: (TabLayout.Tab?) -> Unit
-) {
+fun TabLayout.doOnTabSelected(onSelected: (TabLayout.Tab?) -> Unit) {
     addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
         override fun onTabSelected(tab: TabLayout.Tab?) {
             onSelected.invoke(tab)
         }
 
         override fun onTabReselected(tab: TabLayout.Tab?) {
-            onReselected.invoke(tab)
+            // Handle tab reselect
         }
 
         override fun onTabUnselected(tab: TabLayout.Tab?) {
-            onUnselected.invoke(tab)
+            // Handle tab unselect
         }
     })
-}
-
-/**
- * Extension method Provides editing for NestedScrollView in CoordinatorLayout.
- * INFO: Updates this NestedScrollView bottom-padding. It removes the empty-space.
- * Insets are areas of your view that you should not put elements, like behind the status bar or navigation bar.
- */
-fun NestedScrollView.setInsetListener() {
-    ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
-        this.updatePadding(bottom = insets.systemWindowInsetBottom)
-        insets.consumeSystemWindowInsets()
-    }
 }
 
 /**
