@@ -6,9 +6,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
-import com.google.android.material.tabs.TabLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.tabs.TabLayout
 
 /**
  * Set an onClick listener
@@ -155,3 +155,7 @@ fun RecyclerView.addScrollListener(onScroll: (position: Int) -> Unit) {
         }
     })
 }
+
+
+
+
