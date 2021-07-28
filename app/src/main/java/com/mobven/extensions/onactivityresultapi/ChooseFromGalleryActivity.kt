@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.mobven.extension.Constants
+import com.mobven.extension.chooseFromGallery
 import com.mobven.extension.chooseImagesFromGallery
 import com.mobven.extension.click
 import com.mobven.extensions.databinding.ActivityChooseFromGalleryBinding
@@ -17,7 +18,7 @@ class ChooseFromGalleryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            val chooser = this@ChooseFromGalleryActivity.chooseImagesFromGallery { uriList:List<Uri?> ->
+            val chooser = this@ChooseFromGalleryActivity.chooseFromGallery { uriList:List<Uri?> ->
                 Glide.with(this@ChooseFromGalleryActivity).load(uriList.last()).into(ivPreview)
             }
             btnChoosePhotoFromGallery.click {

@@ -52,6 +52,7 @@ dependencies {
                       navigationColor: Int = android.R.color.holo_green_dark, 
                       toolbarColor: Int = android.R.color.holo_blue_bright
                      )
+* chooseFromGallery(callback: ActivityResultCallback<List<Uri?>>): ActivityResultLauncher<String>
 
 ## Collection
 
