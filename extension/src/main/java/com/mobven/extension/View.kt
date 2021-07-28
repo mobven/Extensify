@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.tabs.TabLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Set an onClick listener
@@ -129,4 +131,27 @@ fun NestedScrollView.setInsetListener() {
         this.updatePadding(bottom = insets.systemWindowInsetBottom)
         insets.consumeSystemWindowInsets()
     }
+}
+
+/**
+ * Returns the scroll position for the vertical RecyclerView.
+ * @param onScroll : Lambda ScrollPosition param
+ */
+
+fun RecyclerView.addScrollListener(onScroll: (position: Int) -> Unit) {
+    var lastPosition = 0
+    addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            if (layoutManager is LinearLayoutManager) {
+                val currentVisibleItemPosition =
+                    (layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+
+                if (lastPosition != currentVisibleItemPosition && currentVisibleItemPosition != RecyclerView.NO_POSITION) {
+                    onScroll.invoke(currentVisibleItemPosition)
+                    lastPosition = currentVisibleItemPosition
+                }
+            }
+        }
+    })
 }
