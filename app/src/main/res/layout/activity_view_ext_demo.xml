@@ -20,5 +20,14 @@
             android:text="Test Click Ext"
             android:layout_height="wrap_content"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_choose_from_gallery"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/btn_click_ext"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:text="Test Choose From Gallery Ext"
+            android:layout_height="wrap_content"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
