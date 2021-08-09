@@ -10,14 +10,15 @@
         android:id="@+id/btn_choose_photo_from_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:text="CHOOSE PHOTO FROM GALLERY" />
+        android:text="CHOOSE PHOTO FROM GALLERY"
+        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_choose_video_from_gallery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:text="CHOOSE VIDEO FROM GALLERY" />
+        android:text="CHOOSE VIDEO FROM GALLERY"
+        android:theme="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
     <ImageView
         android:id="@+id/iv_preview"
