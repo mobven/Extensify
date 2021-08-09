@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MobvenExtensions</string>
+
+    <string-array name="menu_array">
+        <item>Boolean Ext.</item>
+        <item>Collection Ext.</item>
+        <item>Context Ext.</item>
+        <item>Date Ext.</item>
+        <item>Event Ext.</item>
+        <item>Int Ext.</item>
+        <item>Lifecycle Ext.</item>
+        <item>Long Ext.</item>
+        <item>String Ext.</item>
+        <item>View Ext.</item>
+        <item>Single Selectable RecyclerView</item>
+    </string-array>
 </resources>
