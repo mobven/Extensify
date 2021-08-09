@@ -12,5 +12,6 @@
         <item>Long Ext.</item>
         <item>String Ext.</item>
         <item>View Ext.</item>
+        <item>Single Selectable RecyclerView</item>
     </string-array>
 </resources>
