@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobvenExtensions">
-        <activity android:name=".onactivityresultapi.ChooseFromGalleryActivity"></activity>
+        <activity android:name=".onactivityresultapi.ChooseFromGalleryActivity" />
         <activity android:name=".ViewExtDemoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
