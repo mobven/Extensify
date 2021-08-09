@@ -10,10 +10,11 @@ import com.mobven.extension.click
 import com.mobven.extensions.databinding.ActivityChooseFromGalleryBinding
 
 class ChooseFromGalleryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityChooseFromGalleryBinding
+    private val binding by lazy {
+        ActivityChooseFromGalleryBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityChooseFromGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.apply {
