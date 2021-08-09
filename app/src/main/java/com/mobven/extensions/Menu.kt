@@ -1,6 +1,13 @@
 package com.mobven.extensions;
 
-enum class Menu(val value: String) {
-    SINGLE_SELECT_LIST("Single Selectable RecyclerView"),
-    VIEW_EXT("View Ext.")
+import androidx.annotation.StringDef
+import com.mobven.extensions.Menu.Companion.SINGLE_SELECT_LIST
+import com.mobven.extensions.Menu.Companion.VIEW_EXT
+
+@StringDef(SINGLE_SELECT_LIST, VIEW_EXT)
+annotation class Menu {
+    companion object {
+        const val SINGLE_SELECT_LIST = "Single Selectable RecyclerView"
+        const val VIEW_EXT = "View Ext."
+    }
 }

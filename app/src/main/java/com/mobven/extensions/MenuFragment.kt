@@ -41,8 +41,8 @@ class MenuFragment : Fragment() {
 
     private fun navigateToMenu(menuStr: String) {
         when(menuStr) {
-            Menu.SINGLE_SELECT_LIST.value -> findNavController().navigate(R.id.action_menuFragment_to_singleSelectableRecyclerView)
-            Menu.VIEW_EXT.value -> findNavController().navigate(R.id.action_menuFragment_to_viewExtDemoActivity)
+            Menu.SINGLE_SELECT_LIST -> findNavController().navigate(R.id.action_menuFragment_to_singleSelectableRecyclerView)
+            Menu.VIEW_EXT -> findNavController().navigate(R.id.action_menuFragment_to_viewExtDemoActivity)
         }
     }
 
