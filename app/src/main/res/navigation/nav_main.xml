@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_menuFragment_to_singleSelectableRecyclerView"
             app:destination="@id/singleSelectableRecyclerView" />
+        <action
+            android:id="@+id/action_menuFragment_to_viewExtDemoActivity"
+            app:destination="@id/viewExtDemoActivity" />
     </fragment>
     <fragment
         android:id="@+id/singleSelectableRecyclerView"
         android:name="com.mobven.extensions.recyclerview.singleselectable.SingleSelectableRecyclerViewFragment"
         tools:layout="@layout/fragment_single_selectable_rv"
         android:label="SingleSelectableRecyclerView" />
+    <activity
+        android:id="@+id/viewExtDemoActivity"
+        android:name="com.mobven.extensions.ViewExtDemoActivity"
+        android:label="activity_view_ext_demo"
+        tools:layout="@layout/activity_view_ext_demo" />
 </navigation>

@@ -1,11 +1,13 @@
 package com.mobven.extensions
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.mobven.extension.click
 import com.mobven.extension.toast
 import com.mobven.extensions.databinding.ActivityViewExtDemoBinding
+import com.mobven.extensions.onactivityresultapi.ChooseFromGalleryActivity
 
 class ViewExtDemoActivity : AppCompatActivity() {
 
@@ -22,6 +24,9 @@ class ViewExtDemoActivity : AppCompatActivity() {
         binding.apply {
             btnClickExt.click {
                 toast("Clicked")
+            }
+            btnChooseFromGallery.click {
+                startActivity(Intent(this@ViewExtDemoActivity, ChooseFromGalleryActivity::class.java))
             }
         }
     }

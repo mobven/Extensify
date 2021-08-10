@@ -12,6 +12,10 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
@@ -212,6 +216,13 @@ fun Context.showUrlOnCustomTabs(
     }
 }
 
+/**
+ * Launches a chooser for image or videos from gallery and returns list of choosed item URI's
+ */
+
+fun ComponentActivity.chooseFromGallery(callback: ActivityResultCallback<List<Uri?>>): ActivityResultLauncher<String> {
+    return this.registerForActivityResult(ActivityResultContracts.GetMultipleContents(), callback)
+}
 
 
 
