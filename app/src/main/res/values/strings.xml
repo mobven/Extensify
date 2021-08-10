@@ -13,5 +13,6 @@
         <item>String Ext.</item>
         <item>View Ext.</item>
         <item>Single Selectable RecyclerView</item>
+        <item>Request Permissions</item>
     </string-array>
 </resources>

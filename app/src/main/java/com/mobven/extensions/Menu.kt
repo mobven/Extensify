@@ -9,5 +9,6 @@ annotation class Menu {
     companion object {
         const val SINGLE_SELECT_LIST = "Single Selectable RecyclerView"
         const val VIEW_EXT = "View Ext."
+        const val REQUEST_PERMISSIONS = "Request Permissions"
     }
 }
