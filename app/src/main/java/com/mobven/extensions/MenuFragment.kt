@@ -9,6 +9,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mobven.extension.requestPermissions
+import com.mobven.extension.toast
 import com.mobven.extensions.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
@@ -31,6 +32,7 @@ class MenuFragment : Fragment() {
         permissionChecker = requireActivity().requestPermissions { permissions ->
             permissions?.entries?.forEach {
                 Log.d("Permissions","${it.key} is ${it.value}")
+                context.toast("${it.key} is ${it.value}", Toast.LENGTH_LONG)
             }
         }
     }
