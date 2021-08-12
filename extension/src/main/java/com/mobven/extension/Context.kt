@@ -224,6 +224,14 @@ fun ComponentActivity.chooseFromGallery(callback: ActivityResultCallback<List<Ur
     return this.registerForActivityResult(ActivityResultContracts.GetMultipleContents(), callback)
 }
 
+/**
+ * Launches system dialogs to ask user permissions and returns a result map
+ */
+
+fun ComponentActivity.requestPermissions(callback: ActivityResultCallback<Map<String,Boolean>>): ActivityResultLauncher<Array<String>> {
+    return this.registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions(), callback)
+}
+
 
 
 
