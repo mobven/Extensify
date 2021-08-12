@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">MobvenExtensions</string>
+    <string name="choose_video_from_gallery">CHOOSE VIDEO FROM GALLERY</string>
+    <string name="choose_photo_from_gallery">CHOOSE PHOTO FROM GALLERY</string>
 
     <string-array name="menu_array">
         <item>Boolean Ext.</item>
