@@ -16,5 +16,6 @@
         <item>View Ext.</item>
         <item>Single Selectable RecyclerView</item>
         <item>Request Permissions</item>
+        <item>Compose Playground</item>
     </string-array>
 </resources>
