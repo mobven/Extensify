@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.mobven.extension.requestPermissions
 import com.mobven.extension.toast
 import com.mobven.extensions.compose.ComposePlaygroundActivity
+import com.mobven.extensions.compose.layout.LayoutComposeActivity
 import com.mobven.extensions.databinding.FragmentMenuBinding
 
 class MenuFragment : Fragment() {
@@ -63,6 +64,7 @@ class MenuFragment : Fragment() {
             Menu.VIEW_EXT -> findNavController().navigate(R.id.action_menuFragment_to_viewExtDemoActivity)
             Menu.REQUEST_PERMISSIONS -> permissionChecker.launch(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE))
             Menu.COMPOSE_PLAYGROUND -> startActivity(Intent(requireContext(), ComposePlaygroundActivity::class.java))
+            Menu.LAYOUT_COMPOSE -> startActivity(Intent(requireContext(), LayoutComposeActivity::class.java))
         }
     }
 

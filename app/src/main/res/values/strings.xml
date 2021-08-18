@@ -17,5 +17,7 @@
         <item>Single Selectable RecyclerView</item>
         <item>Request Permissions</item>
         <item>Compose Playground</item>
+        <item>Compose Layout</item>
     </string-array>
+    <string name="title_activity_layout_compose">LayoutComposeActivity</string>
 </resources>

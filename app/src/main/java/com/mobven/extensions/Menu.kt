@@ -11,5 +11,6 @@ annotation class Menu {
         const val VIEW_EXT = "View Ext."
         const val REQUEST_PERMISSIONS = "Request Permissions"
         const val COMPOSE_PLAYGROUND = "Compose Playground"
+        const val LAYOUT_COMPOSE = "Compose Layout"
     }
 }
