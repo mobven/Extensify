@@ -5,6 +5,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
+import com.mobven.extension.definitions.CreditCardType
 import java.util.*
 
 /**
@@ -51,4 +52,33 @@ fun String.capitalizeWords(locale: Locale = Locale.ROOT, delimiter: String = " "
         word.lowercase(locale)
             .replaceFirstChar { if (it.isLowerCase()) it.titlecase(locale) else it.toString() }
     }
+}
+
+/**
+ *
+ * Get the credit card type of given card number
+ *
+ */
+fun String.getCreditCardIconType(): String {
+    return when {
+        this.matches(CreditCardType.AMEX.toRegex()) -> {
+            CreditCardType.AMEX
+        }
+        this.matches(CreditCardType.MAESTRO.toRegex()) -> {
+            CreditCardType.MAESTRO
+        }
+        this.matches(CreditCardType.VISA.toRegex()) -> {
+            CreditCardType.VISA
+        }
+        this.matches(CreditCardType.TROY.toRegex()) -> {
+            CreditCardType.TROY
+        }
+        this.matches(CreditCardType.MASTERCARD.toRegex()) -> {
+            CreditCardType.MASTERCARD
+        }
+        else -> {
+            CreditCardType.DEFAULT
+        }
+    }
+
 }
