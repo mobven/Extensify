@@ -17,6 +17,7 @@
         <activity android:name=".compose.layout.LayoutComposeActivity" />
         <activity android:name=".onactivityresultapi.ChooseFromGalleryActivity" />
         <activity android:name=".ViewExtDemoActivity" />
+        <activity android:name=".recyclerview.concatadapter.ConcatExampleActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
