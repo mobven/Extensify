@@ -12,7 +12,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MySplash">
+        android:theme="@style/Theme.MobvenExtensions">
+        <activity
+            android:name=".coroutine.CoroutineFundamentalsActivity"
+            android:exported="false" />
         <activity
             android:name=".compose.layout.LayoutComposeActivity"
             android:exported="false" />
@@ -24,6 +27,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.MySplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
