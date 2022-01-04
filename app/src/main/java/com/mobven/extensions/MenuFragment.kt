@@ -61,6 +61,7 @@ class MenuFragment : Fragment() {
     private fun navigateToMenu(menuStr: String) {
         when(menuStr) {
             Menu.SINGLE_SELECT_LIST -> findNavController().navigate(R.id.action_menuFragment_to_singleSelectableRecyclerView)
+            Menu.DIFF_UTIL_LIST -> findNavController().navigate(R.id.action_menuFragment_to_diffUtilRecyclerView)
             Menu.VIEW_EXT -> findNavController().navigate(R.id.action_menuFragment_to_viewExtDemoActivity)
             Menu.REQUEST_PERMISSIONS -> permissionChecker.launch(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE))
             Menu.COMPOSE_PLAYGROUND -> startActivity(Intent(requireContext(), ComposePlaygroundActivity::class.java))

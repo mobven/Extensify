@@ -18,7 +18,7 @@
         <item>Request Permissions</item>
         <item>Compose Playground</item>
         <item>Compose Layout</item>
-        <item>Coroutine Fundamentals</item>
+        <item>Diff Util RecyclerView</item>
     </string-array>
     <string name="title_activity_layout_compose">LayoutComposeActivity</string>
 </resources>
