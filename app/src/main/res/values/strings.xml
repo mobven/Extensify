@@ -19,6 +19,7 @@
         <item>Compose Playground</item>
         <item>Compose Layout</item>
         <item>Concat Adapter</item>
+        <item>Diff Util RecyclerView</item>
     </string-array>
     <string name="title_activity_layout_compose">LayoutComposeActivity</string>
 </resources>

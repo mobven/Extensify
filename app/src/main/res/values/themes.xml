@@ -14,6 +14,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Theme.MySplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/purple_500</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.MobvenExtensions</item>
+    </style>
+
+
     <style name="Theme.MobvenExtensions.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

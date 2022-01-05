@@ -9,19 +9,27 @@
         android:id="@+id/menuFragment"
         android:name="com.mobven.extensions.MenuFragment"
         android:label="MenuFragment"
-        tools:layout="@layout/fragment_menu" >
+        tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_menuFragment_to_singleSelectableRecyclerView"
             app:destination="@id/singleSelectableRecyclerView" />
         <action
             android:id="@+id/action_menuFragment_to_viewExtDemoActivity"
             app:destination="@id/viewExtDemoActivity" />
+        <action
+            android:id="@+id/action_menuFragment_to_diffUtilRecyclerView"
+            app:destination="@id/diffUtilRecyclerView" />
     </fragment>
     <fragment
         android:id="@+id/singleSelectableRecyclerView"
         android:name="com.mobven.extensions.recyclerview.singleselectable.SingleSelectableRecyclerViewFragment"
         tools:layout="@layout/fragment_single_selectable_rv"
         android:label="SingleSelectableRecyclerView" />
+    <fragment
+        android:id="@+id/diffUtilRecyclerView"
+        android:name="com.mobven.extensions.recyclerview.diffutiladapter.DiffUtilRecyclerViewFragment"
+        android:label="DiffUtilRecyclerView"
+        tools:layout="@layout/fragment_single_selectable_rv" />
     <activity
         android:id="@+id/viewExtDemoActivity"
         android:name="com.mobven.extensions.ViewExtDemoActivity"

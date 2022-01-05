@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -19,6 +18,22 @@
         <activity android:name=".ViewExtDemoActivity" />
         <activity android:name=".recyclerview.concatadapter.ConcatExampleActivity" />
         <activity android:name=".MainActivity">
+        <activity
+            android:name=".coroutine.CoroutineFundamentalsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".compose.layout.LayoutComposeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".onactivityresultapi.ChooseFromGalleryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewExtDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.MySplash"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
