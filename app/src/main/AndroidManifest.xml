@@ -13,6 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobvenExtensions">
+        <activity android:name=".compose.layout.LayoutComposeActivity" />
+        <activity android:name=".onactivityresultapi.ChooseFromGalleryActivity" />
+        <activity android:name=".ViewExtDemoActivity" />
+        <activity android:name=".recyclerview.concatadapter.ConcatExampleActivity" />
+        <activity android:name=".MainActivity">
         <activity
             android:name=".coroutine.CoroutineFundamentalsActivity"
             android:exported="false" />

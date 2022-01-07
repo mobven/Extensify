@@ -12,6 +12,7 @@ annotation class Menu {
         const val REQUEST_PERMISSIONS = "Request Permissions"
         const val COMPOSE_PLAYGROUND = "Compose Playground"
         const val LAYOUT_COMPOSE = "Compose Layout"
+        const val CONCAT_ADAPTER = "Concat Adapter"
         const val DIFF_UTIL_LIST = "Diff Util RecyclerView"
     }
 }
