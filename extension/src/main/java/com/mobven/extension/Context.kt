@@ -5,12 +5,15 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.Intent.*
+import android.content.pm.PackageManager
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.WindowMetrics
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultCallback
@@ -18,7 +21,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+
 
 /**
  * Extension method to show toast for Context.
@@ -30,36 +35,36 @@ fun Context?.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) =
  * Extension method to get height of screen
  */
 fun Activity.heightPixels(): Int {
-    val outMetrics = DisplayMetrics()
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        display?.getRealMetrics(outMetrics)
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowMetrics: WindowMetrics = windowManager.maximumWindowMetrics
+        val bounds: Rect = windowMetrics.bounds
+        bounds.height()
     } else {
+        val outMetrics = DisplayMetrics()
         @Suppress("DEPRECATION")
         val display = windowManager.defaultDisplay
         @Suppress("DEPRECATION")
         display.getMetrics(outMetrics)
+        outMetrics.heightPixels
     }
-
-    return outMetrics.heightPixels
 }
 
 /**
  * Extension method to get width of screen
  */
 fun Activity.widthPixels(): Int {
-    val outMetrics = DisplayMetrics()
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        display?.getRealMetrics(outMetrics)
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowMetrics: WindowMetrics = windowManager.maximumWindowMetrics
+        val bounds: Rect = windowMetrics.bounds
+        bounds.width()
     } else {
+        val outMetrics = DisplayMetrics()
         @Suppress("DEPRECATION")
         val display = windowManager.defaultDisplay
         @Suppress("DEPRECATION")
         display.getMetrics(outMetrics)
+        outMetrics.widthPixels
     }
-
-    return outMetrics.widthPixels
 }
 
 /**
@@ -219,17 +224,39 @@ fun Context.showUrlOnCustomTabs(
 /**
  * Launches a chooser for image or videos from gallery and returns list of choosed item URI's
  */
-
 fun ComponentActivity.chooseFromGallery(callback: ActivityResultCallback<List<Uri?>>): ActivityResultLauncher<String> {
-    return this.registerForActivityResult(ActivityResultContracts.GetMultipleContents(), callback)
+    return registerForActivityResult(ActivityResultContracts.GetMultipleContents(), callback)
 }
 
 /**
  * Launches system dialogs to ask user permissions and returns a result map
  */
-
 fun ComponentActivity.requestPermissions(callback: ActivityResultCallback<Map<String,Boolean>>): ActivityResultLauncher<Array<String>> {
-    return this.registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions(), callback)
+    return registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions(), callback)
+}
+
+/**
+ * Check all permissions are granted
+ */
+fun Context.hasPermissions(vararg permissions: String): Boolean = permissions.all {
+    ActivityCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_GRANTED
+}
+
+/**
+ * Request all permissions at once
+ */
+fun Context.requestAllPermissions(activity: Activity, whyWeNeedThisPermission: (permission: String) -> Unit, allPermissionsGranted: () -> Unit, vararg permissions: String) {
+    if (!hasPermissions(*permissions)) {
+        permissions.forEach {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, it)) {
+                whyWeNeedThisPermission(it)
+            } else {
+                ActivityCompat.requestPermissions(activity, permissions, 100)
+            }
+        }
+    } else {
+        allPermissionsGranted()
+    }
 }
 
 
