@@ -1,6 +1,10 @@
 package com.mobven.extension
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.pdf.PdfRenderer
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.view.ViewCompat
@@ -154,4 +158,35 @@ fun RecyclerView.addScrollListener(onScroll: (position: Int) -> Unit) {
             }
         }
     })
+}
+
+
+/**
+ @see @@@ Sample Usage @@@
+ -------
+
+ suspend fun renderSinglePage(filePath: String, width: Int) = withContext(Dispatchers.IO) {
+    PdfRenderer(ParcelFileDescriptor.open(File(filePath), ParcelFileDescriptor.MODE_READ_ONLY)).use { renderer ->
+    renderer.openPage(0).renderAndClose(width)
+    }
+ }
+
+ */
+
+fun PdfRenderer.Page.renderAndClose(width: Int) = use {
+    val bitmap = createBitmap(width)
+    render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+    bitmap
+}
+
+private fun PdfRenderer.Page.createBitmap(bitmapWidth: Int): Bitmap {
+    val bitmap = Bitmap.createBitmap(
+            bitmapWidth, (bitmapWidth.toFloat() / width * height).toInt(), Bitmap.Config.ARGB_8888
+    )
+
+    val canvas = Canvas(bitmap)
+    canvas.drawColor(Color.WHITE)
+    canvas.drawBitmap(bitmap, 0f, 0f, null)
+
+    return bitmap
 }
