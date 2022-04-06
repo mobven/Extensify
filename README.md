@@ -20,7 +20,7 @@ allprojects {
 
 ```
 dependencies {
-	   implementation 'com.github.mobven:extensify:0.0.2'
+	   implementation 'com.github.mobven:extensify:1.0.0'
 	}
 ```
 
@@ -36,6 +36,7 @@ dependencies {
 * removeIf(predicate: () -> Boolean)
 * multipleOnClick(vararg view: View, onClick: () -> Unit)
 * onTabSelectedListener(onSelected: (TabLayout.Tab?) -> Unit, onReselected: (TabLayout.Tab?) -> Unit, onUnselected: (TabLayout.Tab?) -> Unit)
+* PdfRenderer.Page.renderAndClose(width: Int)
 
 
 ## Context
@@ -83,6 +84,7 @@ dependencies {
 * SpannableString.underline(start: Int, end: Int)
 * SpannableString.italic(start: Int, end: Int)
 * String.capitalizeWords(locale: Locale, delimiter: String)
+* String.getCreditCardIconType()
 
 ## Boolean
 
