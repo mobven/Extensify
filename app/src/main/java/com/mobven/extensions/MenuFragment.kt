@@ -1,5 +1,6 @@
 package com.mobven.extensions
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.mobven.extensions.compose.ComposePlaygroundActivity
 import com.mobven.extensions.compose.layout.LayoutComposeActivity
 import com.mobven.extensions.databinding.FragmentMenuBinding
 import com.mobven.extensions.recyclerview.concatadapter.ConcatExampleActivity
+import com.mobven.extensions.remindmethere.MapsActivity
 
 class MenuFragment : Fragment() {
 
@@ -64,10 +66,11 @@ class MenuFragment : Fragment() {
             Menu.SINGLE_SELECT_LIST -> findNavController().navigate(R.id.action_menuFragment_to_singleSelectableRecyclerView)
             Menu.DIFF_UTIL_LIST -> findNavController().navigate(R.id.action_menuFragment_to_diffUtilRecyclerView)
             Menu.VIEW_EXT -> findNavController().navigate(R.id.action_menuFragment_to_viewExtDemoActivity)
-            Menu.REQUEST_PERMISSIONS -> permissionChecker.launch(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE))
+            Menu.REQUEST_PERMISSIONS -> permissionChecker.launch(arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE))
             Menu.COMPOSE_PLAYGROUND -> startActivity(Intent(requireContext(), ComposePlaygroundActivity::class.java))
             Menu.LAYOUT_COMPOSE -> startActivity(Intent(requireContext(), LayoutComposeActivity::class.java))
             Menu.CONCAT_ADAPTER -> startActivity(Intent(requireContext(), ConcatExampleActivity::class.java))
+            Menu.GEOFENCE -> startActivity(Intent(requireContext(), MapsActivity::class.java))
         }
     }
 

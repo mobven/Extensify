@@ -2,16 +2,17 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.mobven.extensions"
         minSdkVersion 21
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
@@ -40,7 +41,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.0-beta04"
+        kotlinCompilerExtensionVersion = "1.2.0-alpha03"
     }
     packagingOptions {
         resources {
@@ -54,39 +55,47 @@ dependencies {
     implementation project(":extension")
 
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     //Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.0-beta02'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.0-beta02'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.0-alpha02'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.0-alpha02'
 
     // Integration with activities
     implementation 'androidx.activity:activity-compose:1.4.0'
     // Compose Material Design
-    implementation 'androidx.compose.material:material:1.0.5'
+    implementation 'androidx.compose.material:material:1.1.0'
     // Tooling support (Previews, etc.)
-    implementation 'androidx.compose.ui:ui-tooling:1.0.5'
-    implementation "androidx.compose.ui:ui:1.0.5"
-    implementation "androidx.compose.ui:ui-tooling-preview:1.0.5"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation 'androidx.compose.ui:ui-tooling:1.1.0'
+    implementation "androidx.compose.ui:ui:1.1.0"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.1.0"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
     implementation 'io.coil-kt:coil-compose:1.3.0'
 
-    implementation "androidx.recyclerview:recyclerview:1.2.0-alpha04"
-    implementation 'androidx.databinding:databinding-runtime:4.1.3'
-    implementation "androidx.core:core-splashscreen:1.0.0-alpha02"
+    implementation "androidx.recyclerview:recyclerview:1.3.0-alpha01"
+    implementation 'androidx.databinding:databinding-runtime:7.1.1'
+    implementation "androidx.core:core-splashscreen:1.0.0-beta01"
 
     //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
     //Fuel
     implementation "com.github.kittinunf.fuel:fuel-android:2.3.1"
 
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+
+    implementation 'com.github.fondesa:kpermissions:3.3.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.0.5"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.1.0"
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mobven.extension.click
 import com.mobven.extension.toast
 import com.mobven.extensions.databinding.FragmentSingleSelectableRvBinding
 
@@ -12,6 +13,7 @@ class DiffUtilRecyclerViewFragment : Fragment() {
 
     private var _binding: FragmentSingleSelectableRvBinding? = null
     private val binding get() = _binding!!
+    private lateinit var adapter: MyDiffUtilAdapter
 
     private val stars = listOf(
         "Aldebaran",
@@ -34,11 +36,7 @@ class DiffUtilRecyclerViewFragment : Fragment() {
         "Sombrero",
         "Pinwheel",
         "Cartwheel",
-        "Large Magellonic Cloud",
-        "Hoags Object",
-        "Centaurus A",
-        "Leo",
-        "Virgo Stellar Stream"
+        "Large Magellonic Cloud"
     )
 
     override fun onCreateView(
@@ -52,6 +50,9 @@ class DiffUtilRecyclerViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.btnDiffutil.click {
+            adapter.updateList(galaxies)
+        }
         useDiffUtil()
     }
 
@@ -62,7 +63,7 @@ class DiffUtilRecyclerViewFragment : Fragment() {
     }
 
     private fun useDiffUtil() {
-        val adapter = MyDiffUtilAdapter(galaxies)
+        adapter = MyDiffUtilAdapter(stars)
         binding.apply {
             rvSingleSelectable.adapter = adapter
             rvSingleSelectable.setHasFixedSize(true)
@@ -70,7 +71,7 @@ class DiffUtilRecyclerViewFragment : Fragment() {
             adapter.itemClickListener = { _, name ->
                 requireContext().toast(name)
             }
-            adapter.updateList(galaxies)
+            //adapter.updateList(galaxies)
         }
     }
 
