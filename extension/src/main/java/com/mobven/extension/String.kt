@@ -61,19 +61,19 @@ fun String.capitalizeWords(locale: Locale = Locale.ROOT, delimiter: String = " "
  */
 fun String.getCreditCardIconType(): String {
     return when {
-        this.matches(CreditCardType.AMEX.toRegex()) -> {
+        matches(CreditCardType.AMEX.toRegex()) -> {
             CreditCardType.AMEX
         }
-        this.matches(CreditCardType.MAESTRO.toRegex()) -> {
+        matches(CreditCardType.MAESTRO.toRegex()) -> {
             CreditCardType.MAESTRO
         }
-        this.matches(CreditCardType.VISA.toRegex()) -> {
+        matches(CreditCardType.VISA.toRegex()) -> {
             CreditCardType.VISA
         }
-        this.matches(CreditCardType.TROY.toRegex()) -> {
+        matches(CreditCardType.TROY.toRegex()) -> {
             CreditCardType.TROY
         }
-        this.matches(CreditCardType.MASTERCARD.toRegex()) -> {
+        matches(CreditCardType.MASTERCARD.toRegex()) -> {
             CreditCardType.MASTERCARD
         }
         else -> {
