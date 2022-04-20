@@ -105,6 +105,13 @@ fun String?.orFloatZero(): Float {
 }
 
 /**
+ * If a string contains an long value method will return Float or returns 0L
+ */
+fun String?.orLongZero(): Long {
+    return this?.toLongOrNull() ?: 0L
+}
+
+/**
  * If a string contains an "true" or "false" method will return Boolean or returns false
  */
 fun String?.orFalse(): Boolean {
