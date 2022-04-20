@@ -82,3 +82,31 @@ fun String.getCreditCardIconType(): String {
     }
 
 }
+
+/**
+ * If a string contains an integer value method will return Int or returns 0
+ */
+fun String?.orIntZero(): Int {
+    return this?.toIntOrNull() ?: 0
+}
+
+/**
+ * If a string contains a double value method will return Double or returns 0.0
+ */
+fun String?.orDoubleZero(): Double {
+    return this?.toDoubleOrNull() ?: 0.0
+}
+
+/**
+ * If a string contains an float value method will return Float or returns 0F
+ */
+fun String?.orFloatZero(): Float {
+    return this?.toFloatOrNull() ?: 0F
+}
+
+/**
+ * If a string contains an "true" or "false" method will return Boolean or returns false
+ */
+fun String?.orFalse(): Boolean {
+    return this?.toBooleanStrictOrNull().orFalse()
+}
