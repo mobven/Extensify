@@ -21,6 +21,7 @@
         <item>Concat Adapter</item>
         <item>Diff Util RecyclerView</item>
         <item>Geofence</item>
+        <item>Alert Dialog</item>
     </string-array>
     <string name="title_activity_layout_compose">LayoutComposeActivity</string>
     <string name="reminder_added_success">Reminder added!</string>
@@ -48,4 +49,6 @@
     <string name="ok">OK</string>
     <string name="request_location_updates">Request location updates</string>
     <string name="remove_location_updates">Remove location updates</string>
+    <string name="sample_alert_message">Sample Alert Message</string>
+    <string name="no">no_alert_message</string>
 </resources>
