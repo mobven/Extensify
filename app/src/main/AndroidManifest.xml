@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobven.extensions">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -50,7 +49,7 @@
             android:exported="false"
             android:label="@string/title_activity_maps" />
 
-        <service android:name=".remindmethere.GeofenceForegroundService" android:foregroundServiceType="location" android:stopWithTask="false" />
+        <service android:name=".remindmethere.GeofenceForegroundService" android:foregroundServiceType="location"/>
     </application>
 
 </manifest>

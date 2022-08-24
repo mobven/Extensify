@@ -29,11 +29,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
-    private lateinit var geofencingClient: GeofencingClient
     private val geofenceRadius = 200.0
-    private val geofenceId = "Some_Geofence_Id"
-    private lateinit var geofenceHelper: GeofenceHelper
-    private val TAG = "MapsActivity"
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +42,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-        geofencingClient = LocationServices.getGeofencingClient(this)
-        geofenceHelper = GeofenceHelper(this)
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -83,28 +75,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.clear()
         addMarker(latLng)
         addCircle(latLng, geofenceRadius)
-        addGeofence(latLng, geofenceRadius.toFloat())
+        addGeofence(latLng)
     }
 
     @SuppressLint("MissingPermission")
-    private fun addGeofence(latLng: LatLng, radius: Float) {
-        ContextCompat.startForegroundService(
-            this@MapsActivity,
+    private fun addGeofence(latLng: LatLng) {
+        startForegroundService(
             Intent(this@MapsActivity, GeofenceForegroundService::class.java).apply {
                 putExtra("LATLNG", latLng)
             }
         )
-        /*val geofence = geofenceHelper.getGeofence(geofenceId, latLng, radius)
-        val geofencingRequest = geofenceHelper.getGeofencingRequest(geofence)
-        val pendingIntent = geofenceHelper.pendingIntent
-        geofencingClient.addGeofences(geofencingRequest, pendingIntent)?.run {
-            addOnSuccessListener {
-                Log.d(TAG, "onSuccess: Geofence Added...")
-            }
-            addOnFailureListener {
-                Log.d(TAG, "onFailure ${geofenceHelper.getErrorString(it)}")
-            }
-        }*/
     }
 
     @SuppressLint("MissingPermission")

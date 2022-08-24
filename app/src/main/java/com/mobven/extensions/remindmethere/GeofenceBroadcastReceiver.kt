@@ -36,7 +36,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
                 notificationHelper.sendHighPriorityNotification(
                     "GEOFENCE_TRANSITION_ENTER",
                     "",
-                    MapsActivity::class.java
+                    GeofenceForegroundService::class.java
                 )
             }
             Geofence.GEOFENCE_TRANSITION_EXIT -> {
@@ -45,7 +45,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
                 notificationHelper.sendHighPriorityNotification(
                     "GEOFENCE_TRANSITION_EXIT",
                     "",
-                    MapsActivity::class.java
+                    GeofenceForegroundService::class.java
                 )
             }
             Geofence.GEOFENCE_TRANSITION_DWELL -> {
@@ -54,7 +54,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
                 notificationHelper.sendHighPriorityNotification(
                     "GEOFENCE_TRANSITION_DWELL",
                     "",
-                    MapsActivity::class.java
+                    GeofenceForegroundService::class.java
                 )
             }
         }

@@ -13,10 +13,6 @@ import com.google.android.gms.maps.model.LatLng
 
 class GeofenceHelper(base: Context?) : ContextWrapper(base) {
 
-    companion object {
-        private const val TAG = "GeofenceHelper"
-    }
-
     val pendingIntent: PendingIntent by lazy {
         val intent = Intent(this, GeofenceBroadcastReceiver::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

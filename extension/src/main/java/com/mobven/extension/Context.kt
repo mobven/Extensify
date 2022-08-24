@@ -50,6 +50,24 @@ fun Activity.heightPixels(): Int {
 }
 
 /**
+ * Extension method to get height of the full screen
+ */
+fun Activity.heightFullScreenPixels(): Int {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowMetrics: WindowMetrics = windowManager.maximumWindowMetrics
+        val bounds: Rect = windowMetrics.bounds
+        bounds.height()
+    } else {
+        val outMetrics = DisplayMetrics()
+        @Suppress("DEPRECATION")
+        val display = windowManager.defaultDisplay
+        @Suppress("DEPRECATION")
+        display.getRealMetrics(outMetrics)
+        outMetrics.heightPixels
+    }
+}
+
+/**
  * Extension method to get width of screen
  */
 fun Activity.widthPixels(): Int {
@@ -63,6 +81,24 @@ fun Activity.widthPixels(): Int {
         val display = windowManager.defaultDisplay
         @Suppress("DEPRECATION")
         display.getMetrics(outMetrics)
+        outMetrics.widthPixels
+    }
+}
+
+/**
+ * Extension method to get width of screen
+ */
+fun Activity.widthFullScreenPixels(): Int {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        val windowMetrics: WindowMetrics = windowManager.maximumWindowMetrics
+        val bounds: Rect = windowMetrics.bounds
+        bounds.width()
+    } else {
+        val outMetrics = DisplayMetrics()
+        @Suppress("DEPRECATION")
+        val display = windowManager.defaultDisplay
+        @Suppress("DEPRECATION")
+        display.getRealMetrics(outMetrics)
         outMetrics.widthPixels
     }
 }
