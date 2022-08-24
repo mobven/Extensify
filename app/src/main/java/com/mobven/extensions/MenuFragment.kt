@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.mobven.extension.requestPermissions
 import com.mobven.extension.toast
+import com.mobven.extensions.alertdialog.AlertDialogActivity
 import com.mobven.extensions.compose.ComposePlaygroundActivity
 import com.mobven.extensions.compose.layout.LayoutComposeActivity
 import com.mobven.extensions.databinding.FragmentMenuBinding
@@ -71,6 +72,7 @@ class MenuFragment : Fragment() {
             Menu.LAYOUT_COMPOSE -> startActivity(Intent(requireContext(), LayoutComposeActivity::class.java))
             Menu.CONCAT_ADAPTER -> startActivity(Intent(requireContext(), ConcatExampleActivity::class.java))
             Menu.GEOFENCE -> startActivity(Intent(requireContext(), MapsActivity::class.java))
+            Menu.ALERT_DIALOG -> startActivity(Intent(requireContext(), AlertDialogActivity::class.java))
         }
     }
 

@@ -29,6 +29,9 @@
             android:name=".ViewExtDemoActivity"
             android:exported="false" />
         <activity
+            android:name=".alertdialog.AlertDialogActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MySplash">
