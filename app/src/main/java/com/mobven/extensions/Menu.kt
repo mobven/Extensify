@@ -15,5 +15,6 @@ annotation class Menu {
         const val CONCAT_ADAPTER = "Concat Adapter"
         const val DIFF_UTIL_LIST = "Diff Util RecyclerView"
         const val GEOFENCE = "Geofence"
+        const val CUSTOM_SHADOW = "Custom Shadow"
     }
 }

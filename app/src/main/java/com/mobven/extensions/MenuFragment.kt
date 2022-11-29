@@ -15,6 +15,7 @@ import com.mobven.extension.requestPermissions
 import com.mobven.extension.toast
 import com.mobven.extensions.compose.ComposePlaygroundActivity
 import com.mobven.extensions.compose.layout.LayoutComposeActivity
+import com.mobven.extensions.customshadow.CustomShadowActivity
 import com.mobven.extensions.databinding.FragmentMenuBinding
 import com.mobven.extensions.recyclerview.concatadapter.ConcatExampleActivity
 import com.mobven.extensions.remindmethere.MapsActivity
@@ -71,6 +72,7 @@ class MenuFragment : Fragment() {
             Menu.LAYOUT_COMPOSE -> startActivity(Intent(requireContext(), LayoutComposeActivity::class.java))
             Menu.CONCAT_ADAPTER -> startActivity(Intent(requireContext(), ConcatExampleActivity::class.java))
             Menu.GEOFENCE -> startActivity(Intent(requireContext(), MapsActivity::class.java))
+            Menu.CUSTOM_SHADOW -> startActivity(Intent(requireContext(), CustomShadowActivity::class.java))
         }
     }
 

@@ -62,7 +62,7 @@ class GeofenceForegroundService: Service() {
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
                 super.onLocationResult(locationResult)
-                Log.d(TAG, "${locationResult.lastLocation.latitude} ${locationResult.lastLocation.longitude}")
+                Log.d(TAG, "${locationResult.lastLocation?.latitude} ${locationResult.lastLocation?.longitude}")
             }
         }
         Looper.myLooper()?.let {

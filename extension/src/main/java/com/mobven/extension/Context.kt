@@ -1,6 +1,8 @@
 package com.mobven.extension
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.PendingIntent
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -149,13 +151,14 @@ fun Context.market(): Boolean {
 /**
  * Extension method to share for Context.
  */
-fun Context.share(text: String, subject: String = ""): Boolean {
-    val intent = Intent()
-    intent.type = "text/plain"
-    intent.putExtra(EXTRA_SUBJECT, subject)
-    intent.putExtra(EXTRA_TEXT, text)
+fun Context.share(text: String, title: String): Boolean {
+    val intent = Intent().apply {
+        type = "text/plain"
+        action = ACTION_SEND
+        putExtra(EXTRA_TEXT, text)
+    }
     return try {
-        startActivity(createChooser(intent, null))
+        startActivity(createChooser(intent, title))
         true
     } catch (e: ActivityNotFoundException) {
         false

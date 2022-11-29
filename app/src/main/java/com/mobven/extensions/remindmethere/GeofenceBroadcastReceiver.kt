@@ -17,19 +17,19 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
         val notificationHelper = NotificationHelper(context)
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
 
-        if (geofencingEvent.hasError()) {
+        if (geofencingEvent?.hasError() == true) {
             val errorMessage = GeofenceStatusCodes
                 .getStatusCodeString(geofencingEvent.errorCode)
             Log.e(TAG, errorMessage)
             return
         }
 
-        val geofenceList: List<Geofence>? = geofencingEvent.triggeringGeofences
+        val geofenceList: List<Geofence>? = geofencingEvent?.triggeringGeofences
         geofenceList?.forEach {
             Log.d(TAG, "onReceive: ${it.requestId}")
         }
 
-        when (geofencingEvent.geofenceTransition) {
+        when (geofencingEvent?.geofenceTransition) {
             Geofence.GEOFENCE_TRANSITION_ENTER -> {
                 context.toast("GEOFENCE_TRANSITION_ENTER")
                 Log.d(TAG, "GEOFENCE_TRANSITION_ENTER")
