@@ -22,6 +22,7 @@
         <item>Diff Util RecyclerView</item>
         <item>Geofence</item>
         <item>Custom Shadow</item>
+        <item>Flow Examples</item>
     </string-array>
     <string name="title_activity_layout_compose">LayoutComposeActivity</string>
     <string name="reminder_added_success">Reminder added!</string>

@@ -19,6 +19,12 @@
         <action
             android:id="@+id/action_menuFragment_to_diffUtilRecyclerView"
             app:destination="@id/diffUtilRecyclerView" />
+        <action
+            android:id="@+id/action_menuFragment_to_flowFragment"
+            app:destination="@id/flowFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_extensionTestFragment"
+            app:destination="@id/extensionTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/singleSelectableRecyclerView"
@@ -35,4 +41,12 @@
         android:name="com.mobven.extensions.ViewExtDemoActivity"
         android:label="activity_view_ext_demo"
         tools:layout="@layout/activity_view_ext_demo" />
+    <fragment
+        android:id="@+id/flowFragment"
+        android:name="com.mobven.extensions.flow.FlowFragment"
+        android:label="FlowFragment" />
+    <fragment
+        android:id="@+id/extensionTestFragment"
+        android:name="com.mobven.extensions.test.ExtensionTestFragment"
+        android:label="ExtensionTestFragment" />
 </navigation>

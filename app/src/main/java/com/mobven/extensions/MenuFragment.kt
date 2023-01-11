@@ -73,6 +73,7 @@ class MenuFragment : Fragment() {
             Menu.CONCAT_ADAPTER -> startActivity(Intent(requireContext(), ConcatExampleActivity::class.java))
             Menu.GEOFENCE -> startActivity(Intent(requireContext(), MapsActivity::class.java))
             Menu.CUSTOM_SHADOW -> startActivity(Intent(requireContext(), CustomShadowActivity::class.java))
+            Menu.FLOW_EXAMPLE -> findNavController().navigate(R.id.action_menuFragment_to_flowFragment)
         }
     }
 

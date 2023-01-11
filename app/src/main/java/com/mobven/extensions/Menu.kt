@@ -16,5 +16,6 @@ annotation class Menu {
         const val DIFF_UTIL_LIST = "Diff Util RecyclerView"
         const val GEOFENCE = "Geofence"
         const val CUSTOM_SHADOW = "Custom Shadow"
+        const val FLOW_EXAMPLE = "Flow Examples"
     }
 }
