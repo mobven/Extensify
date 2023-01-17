@@ -263,7 +263,7 @@ fun Context.showUrlOnCustomTabs(
 /**
  * Launches a chooser for image or videos from gallery and returns list of choosed item URI's
  */
-fun ComponentActivity.chooseFromGallery(callback: ActivityResultCallback<List<Uri?>>): ActivityResultLauncher<String> {
+fun ComponentActivity.chooseFromGallery(callback: ActivityResultCallback<List<Uri>>): ActivityResultLauncher<String> {
     return registerForActivityResult(ActivityResultContracts.GetMultipleContents(), callback)
 }
 

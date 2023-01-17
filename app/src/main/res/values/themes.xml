@@ -29,4 +29,12 @@
     <style name="Theme.MobvenExtensions.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MobvenExtensions.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullScreenDialog" parent="Theme.Material3.Light.Dialog">
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+    </style>
 </resources>

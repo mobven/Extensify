@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewExtDemoActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp"
         tools:context=".ViewExtDemoActivity">
 
@@ -16,17 +16,30 @@
             android:id="@+id/btn_click_ext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test Click Ext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Show Full Screen Dialog" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Bottom Sheet" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_choose_from_gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test Choose From Gallery Ext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_click_ext" />
+            android:text="Test Choose From Gallery Ext" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_alert_dialog_ext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Material Alert Dialog Ext" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_custom_alert_dialog_ext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Material Alert Dialog Ext" />
+    </LinearLayout>
 </ScrollView>
