@@ -48,7 +48,7 @@ class ViewExtDemoActivity : AppCompatActivity() {
             btnBottomSheet.click {
                 bottomSheetOf(
                     supportFragmentManager,
-                    false,
+                    true,
                     30,
                     viewHolderCreator = { layoutInflater, sheet ->
                         val binding = DialogBottomSheetBinding.inflate(layoutInflater)

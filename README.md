@@ -20,9 +20,15 @@ allprojects {
 
 ```
 dependencies {
-	   implementation 'com.github.mobven:extensify:1.0.0'
+	   implementation 'com.github.mobven:extensify:1.1.0'
 	}
 ```
+## Dialog
+
+* fullScreenDialogOf(fm: FragmentManager, dialogTheme: Int, viewHolderCreator: (inflater: LayoutInflater, dialog: FullScreenDialogFragment) -> View?)
+* bottomSheetOf(fm: FragmentManager, isFullScreen: Boolean = true, heightMultiplier: Int = 50, viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?)
+* alert { setTitle("Title") setMessage("Message") positiveButton("Positive Button") { } negativeButton("Negative Button") { } }
+* customDialogOf(context: Context, @DimenRes width: Int = 0, @DrawableRes bg: Int = 0, viewHolderCreator: (dialog: CustomAlertDialog) -> View?)
 
 ## View
 
