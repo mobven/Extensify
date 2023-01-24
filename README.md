@@ -91,6 +91,7 @@ dependencies {
 * SpannableString.italic(start: Int, end: Int)
 * String.capitalizeWords(locale: Locale, delimiter: String)
 * String.getCreditCardIconType()
+* String.isValidTCKN()
 
 ## Boolean
 

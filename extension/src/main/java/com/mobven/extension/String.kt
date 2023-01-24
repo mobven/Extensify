@@ -82,3 +82,24 @@ fun String.getCreditCardIconType(): String {
     }
 
 }
+
+/**
+ * TC. kimlik numaraları 11 basamaklıdır ve ilk rakam 0 olamaz.
+ * 1,3,5,7 ve 9.cu hanelerin toplamının 7 ile çarpımından 2,4,6, ve 8. haneler çıkartıldığında geriye kalan sayının 10'a göre modu 10. haneyi verir.
+ * 1,2,3,4,5,6,7,8,9 ve 10. sayıların toplamının 10'a göre modu 11. rakamı verir.
+ */
+fun String?.isValidTCKN(): Boolean =
+    this?.takeIf { length == 11 && get(0) != '0' }?.let {
+        var oddSum = 0
+        var evenSum = 0
+        for (i in 0..8) {
+            if (i % 2 == 0) oddSum += get(i).digitToInt()
+            else evenSum += get(i).digitToInt()
+        }
+        val controlDigit = (oddSum * 7 - evenSum) % 10
+        if (get(9).digitToInt() != controlDigit) {
+            return false
+        }
+        return get(10).digitToInt() == (controlDigit + evenSum + oddSum) % 10
+    } ?: run { false }
+
