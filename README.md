@@ -69,6 +69,7 @@ dependencies {
 ## Date
 
 * formatToViewTime(customFormat: String = "dd MMMM yyyy")
+* add(Calendar.YEAR, 1)
 
 ## Int
 
@@ -92,6 +93,7 @@ dependencies {
 * String.capitalizeWords(locale: Locale, delimiter: String)
 * String.getCreditCardIconType()
 * String.isValidTCKN()
+* String.toPriceAmount(decimalFormat: DecimalFormat)
 
 ## Boolean
 

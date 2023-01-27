@@ -6,6 +6,7 @@ import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.text.style.UnderlineSpan
 import com.mobven.extension.definitions.CreditCardType
+import java.text.DecimalFormat
 import java.util.*
 
 /**
@@ -81,6 +82,13 @@ fun String.getCreditCardIconType(): String {
         }
     }
 
+}
+
+fun String?.toPriceAmount(decimalFormat: DecimalFormat = DecimalFormat("###,###,###.##")): String? {
+    return this?.let {
+        if (it.isEmpty() || it.toDoubleOrNull() == null) return it
+        decimalFormat.format(it.toDouble())
+    }
 }
 
 /**
