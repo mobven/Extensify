@@ -60,8 +60,8 @@ class ViewExtDemoActivity : AppCompatActivity() {
             btnBottomSheet.click {
                 bottomSheetOf(
                     supportFragmentManager,
-                    false,
-                    30,
+                    40,
+                    dialogTheme = R.style.FullScreenDialog,
                     viewHolderCreator = { layoutInflater, sheet ->
                         val binding = DialogBottomSheetBinding.inflate(layoutInflater)
                         binding.root
