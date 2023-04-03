@@ -51,3 +51,5 @@ l
 <app/src/main/java/com/mobven/extensions/flow/FlowFragment.kt,f/9/f9b6b16d3fe138d85bad7a97019e98400714d633
 m
 =app/src/main/java/com/mobven/extensions/flow/FlowViewModel.kt,4/e/4e69ff75c1164e5d8f90a3a2e5b6871a3f501d18
+i
+9app/src/main/java/com/mobven/extensions/InputManager.java,f/a/fac9712c4c0cb794fb3684bfb1f5c689cdd0b470

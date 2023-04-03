@@ -1,5 +1,6 @@
 package com.mobven.extension.dialogs
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ class FullScreenDialogFragment(private val dialogTheme: Int, private val viewHol
 
 fun fullScreenDialogOf(
     fragmentManager: FragmentManager,
-    dialogTheme: Int = android.R.style.Theme_DeviceDefault_NoActionBar_TranslucentDecor,
+    dialogTheme: Int = android.R.style.Theme_Material_NoActionBar_TranslucentDecor,
     viewHolderCreator: (inflater: LayoutInflater, dialog: FullScreenDialogFragment) -> View?
 ) {
     FullScreenDialogFragment(dialogTheme, viewHolderCreator).show(fragmentManager, "FULL_SCREEN_DIALOG")

@@ -1,27 +1,30 @@
 package com.mobven.extension.dialogs
 
 import android.app.Dialog
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mobven.extension.R
-import com.mobven.extension.drawable
 import com.mobven.extension.heightPixels
 
 class BottomSheetExposer(
     private val isFullScreen: Boolean = true,
     private val heightMultiplier: Int = 50,
+    private val dialogTheme: Int,
     private val viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
 ) : BottomSheetDialogFragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, dialogTheme)
+    }
 
     private fun setupFullHeight(bottomSheetDialog: BottomSheetDialog) {
         val bottomSheet =
@@ -83,11 +86,13 @@ fun bottomSheetOf(
     fragmentManager: FragmentManager,
     isFullScreen: Boolean = true,
     heightMultiplier: Int = 50,
+    dialogTheme: Int = android.R.style.Theme_Material_NoActionBar_TranslucentDecor,
     viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
 ) {
     BottomSheetExposer(
         isFullScreen,
         heightMultiplier,
+        dialogTheme,
         viewHolderCreator
     ).show(fragmentManager, "BOTTOM_SHEET")
 }
