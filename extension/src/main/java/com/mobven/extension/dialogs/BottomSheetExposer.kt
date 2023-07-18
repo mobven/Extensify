@@ -13,20 +13,36 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mobven.extension.R
 import com.mobven.extension.heightPixels
 
-class BottomSheetExposer(
-    private val heightMultiplier: Int = 50,
-    private val isWrapContent: Boolean,
-    private val dialogTheme: Int,
-    private val viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
-) : BottomSheetDialogFragment() {
+class BottomSheetExposer : BottomSheetDialogFragment() {
+    companion object {
+
+        private var heightMultiplier: Int = 50
+        private var isWrapContent: Boolean = false
+        private var dialogTheme: Int = android.R.style.Theme_Material_NoActionBar_TranslucentDecor
+        private var viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View? = {_, _ -> null}
+        fun instance(
+            heightMultiplier: Int,
+            isWrapContent: Boolean,
+            dialogTheme: Int,
+            viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
+        ): BottomSheetExposer {
+            this.heightMultiplier = heightMultiplier
+            this.isWrapContent = isWrapContent
+            this.dialogTheme = dialogTheme
+            this.viewHolderCreator = viewHolderCreator
+            return BottomSheetExposer()
+        }
+    }
 
     private fun setupFullHeight(bottomSheetDialog: BottomSheetDialog) {
         val bottomSheet =
             bottomSheetDialog.findViewById<View>(R.id.design_bottom_sheet) as FrameLayout?
         bottomSheet?.let { frame ->
             val behavior: BottomSheetBehavior<*> = BottomSheetBehavior.from(frame)
-            if (isWrapContent) frame.layoutParams.height =
-                requireActivity().heightPixels() * heightMultiplier / 100
+            if (isWrapContent.not()) {
+                frame.layoutParams.height =
+                    requireActivity().heightPixels() * heightMultiplier / 100
+            }
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
             behavior.skipCollapsed = true
         }
@@ -35,8 +51,10 @@ class BottomSheetExposer(
     override fun onStart() {
         super.onStart()
         val sheetContainer = requireView().parent as ViewGroup
-        if (isWrapContent) sheetContainer.layoutParams.height =
-            requireActivity().heightPixels() * heightMultiplier / 100
+        if (isWrapContent.not()) {
+            sheetContainer.layoutParams.height =
+                requireActivity().heightPixels() * heightMultiplier / 100
+        }
 
     }
 
@@ -65,7 +83,7 @@ fun bottomSheetOf(
     dialogTheme: Int = android.R.style.Theme_Material_NoActionBar_TranslucentDecor,
     viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
 ) {
-    BottomSheetExposer(
+    BottomSheetExposer.instance(
         heightMultiplier,
         isWrapContent,
         dialogTheme,

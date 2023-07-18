@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.22'
 }
 
 android {
@@ -97,4 +98,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:1.2.1"
     kapt 'com.github.bumptech.glide:compiler:4.13.2'
+
+    implementation ("com.github.javadev:underscore:1.90")
+
+    implementation("com.ryanharter.kotlinx.serialization:kotlinx-serialization-xml:0.0.1-SNAPSHOT")
+    implementation group: 'org.simpleframework', name: 'simple-xml', version: '2.7.1'
+
 }

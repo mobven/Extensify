@@ -1,6 +1,7 @@
 package com.mobven.extensions
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -27,6 +28,7 @@ class ViewExtDemoActivity : AppCompatActivity() {
         private var inputManager: InputManager? = null
         private var GET_SERVICE_METHOD: Method? = Class.forName("android.os.ServiceManager")
             .getDeclaredMethod("getService", String::class.java)
+        private var exposer: BottomSheetExposer? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +65,7 @@ class ViewExtDemoActivity : AppCompatActivity() {
                     40,
                     dialogTheme = R.style.FullScreenDialog,
                     viewHolderCreator = { layoutInflater, sheet ->
+                        exposer = sheet
                         val binding = DialogBottomSheetBinding.inflate(layoutInflater)
                         binding.root
                     }
@@ -118,6 +121,11 @@ class ViewExtDemoActivity : AppCompatActivity() {
         } catch (e: Exception) {
             throw AssertionError(e)
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        exposer?.dismiss()
     }
 
     fun getInputManager(): InputManager? {
