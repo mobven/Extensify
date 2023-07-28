@@ -19,6 +19,7 @@ import com.mobven.extensions.customshadow.CustomShadowActivity
 import com.mobven.extensions.databinding.FragmentMenuBinding
 import com.mobven.extensions.recyclerview.concatadapter.ConcatExampleActivity
 import com.mobven.extensions.remindmethere.MapsActivity
+import com.mobven.extensions.tabrcsync.TabRcSyncActivity
 
 class MenuFragment : Fragment() {
 
@@ -74,6 +75,7 @@ class MenuFragment : Fragment() {
             Menu.GEOFENCE -> startActivity(Intent(requireContext(), MapsActivity::class.java))
             Menu.CUSTOM_SHADOW -> startActivity(Intent(requireContext(), CustomShadowActivity::class.java))
             Menu.FLOW_EXAMPLE -> findNavController().navigate(R.id.action_menuFragment_to_flowFragment)
+            Menu.RC_TAB_SYNC -> startActivity(Intent(requireContext(), TabRcSyncActivity::class.java))
         }
     }
 

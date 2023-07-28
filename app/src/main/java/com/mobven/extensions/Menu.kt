@@ -17,5 +17,6 @@ annotation class Menu {
         const val GEOFENCE = "Geofence"
         const val CUSTOM_SHADOW = "Custom Shadow"
         const val FLOW_EXAMPLE = "Flow Examples"
+        const val RC_TAB_SYNC = "Recylerview TabLayout Sync Examples"
     }
 }

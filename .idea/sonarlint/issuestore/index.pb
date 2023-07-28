@@ -1,8 +1,6 @@
 
 w
 Gapp/src/main/java/com/mobven/extensions/remindmethere/GeofenceHelper.kt,d/0/d0f977559b6a3571c0ebf68d80e19cc1b37eee44
-u
-Eapp/src/main/java/com/mobven/extensions/remindmethere/MapsActivity.kt,e/7/e75e55e3963d80cfa6c71e920459dea97eac5240
 L
 extension/consumer-rules.pro,8/b/8b76dbf8a4e911fccc47cf051c094c8df395f22d
 ‚
@@ -17,12 +15,6 @@ X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 V
 &extension/src/main/AndroidManifest.xml,d/9/d9da75b3971f3fb62d644c6f4ccf4127ff30bfd9
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-_
-/app/src/main/java/com/mobven/extensions/Menu.kt,4/2/4215bbbcce18935108a1aef11c5f363dff2995fe
-d
-4extension/src/main/java/com/mobven/extension/View.kt,f/8/f89b590647aebdcdb16a4d011f95b15860ad4e93
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 F
@@ -33,14 +25,10 @@ dapp/src/main/java/com/mobven/extensions/recyclerview/diffutiladapter/DiffUtilRe
 Vapp/src/main/java/com/mobven/extensions/recyclerview/diffutiladapter/MyDiffCallback.kt,8/6/862cbfeb0c928c14eb389ba12a416d54161cfe70
 ‰
 Yapp/src/main/java/com/mobven/extensions/recyclerview/diffutiladapter/MyDiffUtilAdapter.kt,7/b/7b9734456e759881c7bff02c4f08d2391a79bb58
-g
-7app/src/main/java/com/mobven/extensions/MainActivity.kt,a/1/a1d29e17eb5443120712f33190b1e3670806018e
 f
 6app/src/main/java/com/mobven/extensions/MenuAdapter.kt,6/7/67105d7938a31d0dab4fa99fe4339fdf0c9de985
 d
 4extension/src/main/java/com/mobven/extension/Date.kt,b/5/b541413dd5e7018779f79acc2a4c62eea2b476e8
-g
-7app/src/main/java/com/mobven/extensions/MenuFragment.kt,7/8/7890783a447c5c162258f363560737d740770389
 u
 Eapp/src/main/java/com/mobven/extensions/test/ExtensionTestFragment.kt,9/0/90b7839a41ba46b5062d598676a561b935c7d961
 n
