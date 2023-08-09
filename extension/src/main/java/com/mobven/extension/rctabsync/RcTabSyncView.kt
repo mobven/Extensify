@@ -96,7 +96,7 @@ class RcTabSyncView @JvmOverloads constructor(
             if (tabIndexForPos != it.selectedTabPosition) {
                 ignoreTabSelect = true
                 val tab = it.getTabAt(tabIndexForPos)
-                if (tab != null) {
+                tab?.let { tabs ->
                     it.selectTab(tab)
                 }
             }
@@ -146,9 +146,7 @@ class RcTabSyncView @JvmOverloads constructor(
                     is LinearLayoutManager -> updateTabsFromScrollEvent(
                         layoutManager.findFirstCompletelyVisibleItemPosition()
                     )
-                    is GridLayoutManager  -> updateTabsFromScrollEvent(
-                        layoutManager.findFirstCompletelyVisibleItemPosition()
-                    )
+                    // Your Layout Manager added.
                     else -> throw IllegalArgumentException("The layoutManager:$layoutManager is unsupported")
                 }
             }
