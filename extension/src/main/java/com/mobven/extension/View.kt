@@ -12,6 +12,7 @@ import androidx.core.view.updatePadding
 import androidx.core.widget.NestedScrollView
 import com.google.android.material.tabs.TabLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -189,4 +190,13 @@ private fun PdfRenderer.Page.createBitmap(bitmapWidth: Int): Bitmap {
     canvas.drawBitmap(bitmap, 0f, 0f, null)
 
     return bitmap
+}
+
+fun RecyclerView.smoothSnapToPosition(position: Int, snapMode: Int = LinearSmoothScroller.SNAP_TO_START) {
+    val smoothScroller = object : LinearSmoothScroller(this.context) {
+        override fun getVerticalSnapPreference(): Int = snapMode
+        override fun getHorizontalSnapPreference(): Int = snapMode
+    }
+    smoothScroller.targetPosition = position
+    layoutManager?.startSmoothScroll(smoothScroller)
 }
