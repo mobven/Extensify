@@ -80,6 +80,7 @@ fun bottomSheetOf(
     fragmentManager: FragmentManager,
     heightMultiplier: Int = 50,
     isWrapContent: Boolean = false,
+    tag: String = "BOTTOM_SHEET",
     dialogTheme: Int = android.R.style.Theme_Material_NoActionBar_TranslucentDecor,
     viewHolderCreator: (inflater: LayoutInflater, sheet: BottomSheetExposer) -> View?
 ) {
@@ -88,5 +89,5 @@ fun bottomSheetOf(
         isWrapContent,
         dialogTheme,
         viewHolderCreator
-    ).show(fragmentManager, "BOTTOM_SHEET")
+    ).show(fragmentManager, tag)
 }
